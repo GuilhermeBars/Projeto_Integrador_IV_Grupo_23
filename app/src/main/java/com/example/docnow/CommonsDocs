@@ -1,0 +1,31 @@
+Documento feito para facilitar a implementação dos recursos Commons
+Todas as cores devem ser definidas no arquivo Colors.kt
+Na MainActivity estão diversos exemplos de como usar cada um
+
+-UnderlineTextField:
+    - Para usa-lo você precisa passar como parâmetro:
+        - Label: (Senha, email, etc...)
+        - Value: (Normalmente é tido como "")
+        - isPassword: (true ou false)
+
+-Botão:
+     - Para usa-lo você precisa passar como parâmetro:
+        color1: (Cor primária)
+        color2: (Cor secundária - Cor do texto - )
+        Label: (texto do botão)
+
+-ProgressCircle:
+     - Para usa-lo você precisa passar como parâmetro:
+        mainColor: (Cor do arco)
+        percentage: (porcentagem do progresso) ex: 85f
+
+-ProgressCard:
+     - Para usa-lo você precisa passar como parâmetro:
+        title: Titulo do card (ex: Colesterol)
+        measure: Medida do titulo (ex: 50mg/dl)
+        message: Mensagem do card (ex: Seu colesterol esta abaixo do normal)
+        percentage: (porcentagem do progresso) ex: 85f
+        mainColor: (Cor do arco)
+        borderColor: (Cor da borda)
+        textColor: (Cor do texto),
+        secondaryColor: (Cor do card)
