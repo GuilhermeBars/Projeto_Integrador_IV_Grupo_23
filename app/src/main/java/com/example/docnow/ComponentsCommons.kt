@@ -1,7 +1,10 @@
 package com.example.docnow
 
+import android.app.DatePickerDialog
+import android.icu.text.SimpleDateFormat
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
@@ -35,6 +39,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -43,6 +48,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.util.Calendar
 
 @Composable
 fun UnderlineTextField(
@@ -122,9 +128,10 @@ fun ButtonDefault(
     label: String,
     color1: Color,
     color2: Color,
+    onClick: () -> Unit
 ){
     Button(
-        onClick ={/*TODO*/},
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             containerColor = color1,
             contentColor = color2
@@ -250,3 +257,4 @@ fun ProgressCard(
 
     }
 }
+
