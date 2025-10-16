@@ -13,6 +13,7 @@
         android:theme="@style/Theme.DocNow"
         tools:targetApi="31">
         <activity
+            android:name=".ResutsActivity"
             android:name=".InsertDataActivity"
             android:exported="false" />
         <activity

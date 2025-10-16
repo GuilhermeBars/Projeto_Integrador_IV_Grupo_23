@@ -20,6 +20,8 @@ val Preto = Color(0xFF2D2D2D)
 
 //Secundárias
 val Vermelho2 = Color(0x4CFF0000)
+val Amarelo2 = Color(0xFFE5FF40)
+val Azul2 = Color(0xFF1DC1FF)
 
 //Bordas
 val VermelhoB = Color(0xFFFF0000)

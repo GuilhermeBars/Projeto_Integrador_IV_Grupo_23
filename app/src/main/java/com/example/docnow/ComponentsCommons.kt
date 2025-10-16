@@ -48,6 +48,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.docnow.ui.theme.Amarelo
+import com.example.docnow.ui.theme.Amarelo2
+import com.example.docnow.ui.theme.Azul
+import com.example.docnow.ui.theme.Azul2
+import com.example.docnow.ui.theme.Preto
+import com.example.docnow.ui.theme.Vermelho
+import com.example.docnow.ui.theme.Vermelho2
+import com.example.docnow.ui.theme.VermelhoB
 import java.util.Calendar
 
 @Composable
@@ -165,10 +173,21 @@ fun ButtonDefault(
 fun ProgressCircle (
     percentage: Float,
     radius: Dp = 50.dp,
-    mainColor: Color,
     strokeWidth: Dp = 5.dp,
 
     ){
+    var mainColor by remember { mutableStateOf(Preto) }
+
+    mainColor = if (percentage < 33){
+        Vermelho
+    }
+    else if (percentage < 66){
+        Amarelo
+    }
+    else{
+        Azul
+
+    }
 
     Box(
         contentAlignment = Alignment.Center
@@ -210,16 +229,37 @@ fun ProgressCard(
     measure: String,
     message: String,
     percentage: Float,
-    mainColor: Color,
-    borderColor: Color,
-    textColor: Color,
-    secondaryColor: Color
+
 ){
+    var mainColor by remember { mutableStateOf(Preto) }
+    var secondaryColor by remember { mutableStateOf(Preto) }
+    var borderColor by remember { mutableStateOf(Preto) }
+    val textColor by remember { mutableStateOf(Preto) }
+
+    if (percentage < 33){
+        mainColor = Vermelho
+        secondaryColor = Vermelho2
+        borderColor = VermelhoB
+    }
+    else if (percentage < 66){
+        mainColor =  Amarelo
+        secondaryColor = Amarelo2
+        borderColor = Amarelo
+    }
+    else{
+        mainColor =  Azul
+        secondaryColor = Azul2
+        borderColor = Azul
+
+    }
+
+
     OutlinedCard(
         colors = CardDefaults.cardColors(
             containerColor = secondaryColor),
         border = BorderStroke(1.dp, borderColor),
         modifier = Modifier
+            .padding(vertical = 10.dp)
             .size(width = 385.dp, height = 125.dp)
             .shadow(
                 elevation = 2.dp,
@@ -235,7 +275,7 @@ fun ProgressCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ){
-            ProgressCircle(percentage = percentage, mainColor = mainColor)
+            ProgressCircle(percentage = percentage)
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.padding(start = 30.dp)
