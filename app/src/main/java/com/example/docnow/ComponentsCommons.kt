@@ -55,11 +55,11 @@ fun UnderlineTextField(
     value: String,
     onValueChange: (String) -> Unit,
     label: String,
-    isPassword: Boolean
+    isPassword: Boolean,
+    enable: Boolean
 ) {
     var isVisible by remember { mutableStateOf(false) }
-
-    val textFieldColors = TextFieldDefaults.colors(
+    var textFieldColors = TextFieldDefaults.colors(
         focusedTextColor = Color.Black,
         unfocusedTextColor = Color.Black,
         disabledTextColor = Color.LightGray,
@@ -68,8 +68,20 @@ fun UnderlineTextField(
         disabledContainerColor = Color.Transparent,
         focusedIndicatorColor = Color.Gray,
         unfocusedIndicatorColor = Color.Gray,
-        disabledIndicatorColor = Color.Transparent
-    )
+        disabledIndicatorColor = Color.Transparent)
+
+    if (!enable){
+        textFieldColors = TextFieldDefaults.colors(
+            focusedTextColor = Color.Black,
+            unfocusedTextColor = Color.Black,
+            disabledTextColor = Color.DarkGray,
+            focusedContainerColor = Color.LightGray,
+            unfocusedContainerColor = Color.LightGray,
+            disabledContainerColor = Color.LightGray,
+            focusedIndicatorColor = Color.Gray,
+            unfocusedIndicatorColor = Color.Gray,
+            disabledIndicatorColor = Color.LightGray)
+    }
 
     val textStyle = TextStyle(
         color = Color.Black,
@@ -89,6 +101,7 @@ fun UnderlineTextField(
     if(isPassword){
         TextField(
             value = value,
+            enabled = enable,
             onValueChange = onValueChange,
             label = labelComposable,
             colors = textFieldColors,
@@ -110,6 +123,7 @@ fun UnderlineTextField(
         )
     } else {
         TextField(
+            enabled = enable,
             value = value,
             onValueChange = onValueChange,
             label = labelComposable,
