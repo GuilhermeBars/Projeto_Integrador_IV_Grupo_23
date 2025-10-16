@@ -77,7 +77,21 @@ fun homePage(){
             onClick = {
                 val intent = Intent(context, ResutsActivity::class.java)
                 context.startActivity(intent)
-            }
+            }   
+            
         )
+        ButtonDefault(
+            color1 = Branco,
+            color2 = Azul,
+            label = "Entrada de dados",
+            onClick = {
+                val intent = Intent(context, InsertDataActivity::class.java)
+                context.startActivity(intent)
+            }
+            
+            
+        )
+        
+           
     }
 }

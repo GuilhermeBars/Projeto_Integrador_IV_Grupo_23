@@ -48,13 +48,15 @@ fun loginScreen(){
             label = "Email",
             value = email,
             isPassword = false,
-            onValueChange = { email = it }
+            onValueChange = { email = it },
+            enable = true
         )
         UnderlineTextField(
         label = "Senha",
         value = password,
         isPassword = false,
-        onValueChange = { password = it }
+        onValueChange = { password = it },
+        enable = true
     )
         ButtonDefault(
             color1 = Branco,

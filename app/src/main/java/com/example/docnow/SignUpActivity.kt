@@ -50,19 +50,22 @@ fun signUpScreen(){
             label = "Nome",
             value = name,
             isPassword = false,
-            onValueChange = { name = it }
+            onValueChange = { name = it },
+            enable = true
         )
         UnderlineTextField(
             label = "Email",
             value = email,
             isPassword = false,
-            onValueChange = { email = it }
+            onValueChange = { email = it },
+            enable = true
         )
         UnderlineTextField(
             label = "Senha",
             value = password,
             isPassword = true,
-            onValueChange = { password = it }
+            onValueChange = { password = it },
+            enable = true
         )
         ButtonDefault(
             color1 = Azul,
