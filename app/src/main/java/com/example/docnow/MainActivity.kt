@@ -35,7 +35,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             DocNowTheme {
 
-                    homePage()
+                   homePage()
+
 
             }
         }
@@ -66,6 +67,15 @@ fun homePage(){
             label = "Login",
             onClick = {
                 val intent = Intent(context, LoginActivity::class.java)
+                context.startActivity(intent)
+            }
+        )
+        ButtonDefault(
+            color1 = Branco,
+            color2 = Azul,
+            label = "Results",
+            onClick = {
+                val intent = Intent(context, ResutsActivity::class.java)
                 context.startActivity(intent)
             }
         )

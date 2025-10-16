@@ -13,12 +13,14 @@
         android:theme="@style/Theme.DocNow"
         tools:targetApi="31">
         <activity
+            android:name=".ResutsActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
