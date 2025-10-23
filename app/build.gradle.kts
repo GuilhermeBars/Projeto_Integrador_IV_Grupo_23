@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation(platform("org.mongodb:mongodb-driver-bom:5.6.1"))
+    implementation("org.mongodb:mongodb-driver-kotlin-coroutine")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
