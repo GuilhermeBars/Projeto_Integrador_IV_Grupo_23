@@ -29,3 +29,70 @@ Na MainActivity estão diversos exemplos de como usar cada um
         borderColor: (Cor da borda)
         textColor: (Cor do texto),
         secondaryColor: (Cor do card)
+
+-BackButton (Botão de Voltar):
+     - Para implementar o botão de voltar em qualquer tela, siga estes passos:
+     
+     1. IMPORTS NECESSÁRIOS:
+        import androidx.compose.foundation.layout.Box
+        import androidx.compose.ui.Alignment
+        import androidx.compose.ui.platform.LocalContext
+        import androidx.activity.compose.BackHandler
+        import androidx.compose.ui.unit.dp
+        
+     2. ESTRUTURA DA TELA:
+        @Composable
+        fun suaTela() {
+            val context = LocalContext.current
+            
+            // Handler para o botão de voltar do sistema
+            BackHandler {
+                (context as ComponentActivity).finish()
+            }
+            
+            Box(modifier = Modifier.fillMaxSize()) {
+                // Botão de voltar no canto superior esquerdo
+                BackButton(
+                    onClick = { 
+                        (context as ComponentActivity).finish()
+                    },
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(16.dp)
+                )
+                
+                // Seu conteúdo aqui
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    // ... resto do seu layout
+                ) {
+                    // Seu conteúdo da tela
+                }
+            }
+        }
+        EXEMPLO COMPLETO:
+        @Composable
+        fun ExemploActivity() {
+            val context = LocalContext.current
+            
+            BackHandler {
+                (context as ComponentActivity).finish()
+            }
+            
+            Box(modifier = Modifier.fillMaxSize()) {
+                BackButton(
+                    onClick = { (context as ComponentActivity).finish() },
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(16.dp)
+                )
+                
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text("Conteúdo da sua tela aqui")
+                }
+            }
+        }
